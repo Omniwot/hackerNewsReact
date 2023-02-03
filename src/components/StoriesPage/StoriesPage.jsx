@@ -11,7 +11,7 @@ function StoriesPage() {
   const [maxPages, setMaxPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event, value) => {
+  const handlePageChange = (value) => {
     setPage(value);
     setIsLoading(true);
     getSortedStories(page).then((storiesData) => {
@@ -26,7 +26,6 @@ function StoriesPage() {
       getSortedStories(page).then((storiesData) => {
         setStories(storiesData.data.hits);
         setMaxPages(storiesData.data.nbPages);
-        console.log(storiesData.data.hits);
       });
     }
   }, []);
@@ -40,7 +39,7 @@ function StoriesPage() {
 
   return (
     <div>
-      {isLoading && <Typography sx={{ margin: '20rem' }} variant="h4" component="div"> Loading ....</Typography>}
+      {isLoading && <Typography sx={{ margin: '17.5rem' }} variant="h4" component="div"> Loading ....</Typography>}
       <div className="SortedStories">
         {!isLoading && displayStories}
       </div>
@@ -52,7 +51,7 @@ function StoriesPage() {
         justifyContent="center"
       >
         <Stack spacing={2} sx={{ marginBottom: '0.5rem', textAlign: 'center' }}>
-          <Pagination count={maxPages} variant="outlined" color="primary" page={page} onChange={handleChange} />
+          <Pagination count={maxPages} variant="outlined" color="primary" page={page} onChange={handlePageChange} />
         </Stack>
       </Grid>
     </div>

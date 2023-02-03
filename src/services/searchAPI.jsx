@@ -1,7 +1,7 @@
 import http from './common';
 
-function searchStories(query, by = 'q', page = 0) {
-  return http.get(`prices?${by}=${query}&page=${page}`);
+function searchStories(page, search, filterSort, filterTime, filterType) {
+  return http.get(`http://hn.algolia.com/api/v1/search?query=${search}&tags=${filterType}&page=${page}&hitsPerPage=${10}`);
 }
 
 function getSortedStories(page = 0) {

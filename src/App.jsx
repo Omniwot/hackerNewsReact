@@ -3,9 +3,9 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-import SearchPage from './components/Search/SearchPage';
+import SearchPage from './components/SearchPage/SearchPage';
 import StoriesPage from './components/StoriesPage/StoriesPage';
-import TopBar from './components/Topbar/topbar';
+import TopBar from './components/Topbar/Topbar';
 
 function App() {
   return (

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -21,8 +20,8 @@ function StoryCard({ story }) {
         </div>
       </CardContent>
       <CardActions sx={{ margin: '0', padding: '0' }}>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button sx={{ fontSize: '0.7rem', mr: '1rem' }} size="small">Share</Button>
+        <Button sx={{ fontSize: '0.7rem', mr: '1rem' }} size="small" color="success" href={story.url}>Learn More</Button>
         <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1 }}>
           {date}
           {' '}

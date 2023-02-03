@@ -4,14 +4,14 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import HMobiledataIcon from '@mui/icons-material/HMobiledata';
 import { Link } from '@mui/material';
 
 export default function TopBar() {
   return (
     <Box sx={{ width: '100%' }}>
-      <AppBar position="static">
-        <Toolbar>
+      <AppBar position="static" sx={{ bgcolor: 'orange' }}>
+        <Toolbar variant="dense">
           <IconButton
             size="large"
             edge="start"
@@ -19,12 +19,12 @@ export default function TopBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <HMobiledataIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             H News
           </Typography>
-          <Link href="/searchPage" color="inherit" sx={{ textDecoration: 'none' }}>Search</Link>
+          <Link href="/search" color="inherit" sx={{ textDecoration: 'none' }}>Search</Link>
         </Toolbar>
       </AppBar>
     </Box>

@@ -8,6 +8,7 @@ import { Grid, TextField, Typography } from '@mui/material';
 import StoryCard from '../StoryCard/Story';
 import { getSortedStories, searchStories } from '../../services/searchAPI';
 import Dropdown from '../DropdownSelect/Dropdown';
+import CommentCard from '../CommentCard/Comment';
 
 function SearchPage() {
   const [stories, setStories] = useState([]);
@@ -65,7 +66,7 @@ function SearchPage() {
 
   const displayStories = stories
     .map((story) => {
-      if (story.title !== null) {
+      if (story.comment_text === ('' || null)) {
         return (
           <div>
             <StoryCard story={story} />
@@ -74,7 +75,7 @@ function SearchPage() {
       }
       return (
         <div>
-          <StoryCard story={story} />
+          <CommentCard comment={story} />
         </div>
       );
     });

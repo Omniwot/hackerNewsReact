@@ -11,7 +11,7 @@ function StoriesPage() {
   const [maxPages, setMaxPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handlePageChange = (value) => {
+  const handlePageChange = (event, value) => {
     setPage(value);
     setIsLoading(true);
     getSortedStories(page).then((storiesData) => {
@@ -50,7 +50,7 @@ function StoriesPage() {
         alignItems="center"
         justifyContent="center"
       >
-        <Stack spacing={2} sx={{ marginBottom: '0.5rem', marginTop: '0.5rem', textAlign: 'center' }}>
+        <Stack spacing={2} sx={{ marginBottom: '0.5rem', marginTop: '0.2rem', textAlign: 'center' }}>
           <Pagination count={maxPages} variant="outlined" color="primary" page={page} onChange={handlePageChange} />
         </Stack>
       </Grid>

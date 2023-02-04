@@ -13,7 +13,7 @@ function searchStories(page, search, filterSort, filterTime, filterType) {
   return http.get(`http://hn.algolia.com/api/v1/${filterSortString}?query=${search}&tags=${filterTypeString}&page=${page}&hitsPerPage=${10}`);
 }
 
-function getSortedStories(page = 0) {
+function getSortedStories(page = 1) {
   return http.get(`http://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}&hitsPerPage=${10}`);
 }
 

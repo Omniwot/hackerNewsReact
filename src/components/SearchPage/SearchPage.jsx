@@ -20,7 +20,7 @@ function SearchPage() {
   const [isLoading, setIsLoading] = useState(false);
   const filterValues = [['All', 'Stories', 'Comments'], ['Popularity', 'Date'], ['All', 'Stories', 'Comments']];
 
-  const handlePageChange = (value) => {
+  const handlePageChange = (event, value) => {
     setPage(value);
     setIsLoading(true);
     getSortedStories(page).then((storiesData) => {

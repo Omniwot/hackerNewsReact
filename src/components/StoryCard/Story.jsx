@@ -10,7 +10,7 @@ function StoryCard({ story }) {
   const date = new Date(story.created_at).toLocaleDateString([], options);
   const time = new Date(story.created_at).toLocaleTimeString([]);
   return (
-    <Card key={story.id} elevation="2" sx={{ margin: '0.4rem', textAlign: 'left' }}>
+    <Card key={story.id} elevation="2" sx={{ margin: '0.35rem', textAlign: 'left' }}>
       <CardContent sx={{ margin: '0.2rem', padding: '0.1rem' }}>
         <div>
           <Typography variant="h8" component="div" sx={{ flexGrow: 1 }}>

@@ -16,13 +16,14 @@ export default function TopBar() {
             size="large"
             edge="start"
             color="inherit"
-            aria-label="menu"
+            aria-label="H"
             sx={{ mr: 2 }}
+            href="/stories"
           >
             <HMobiledataIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            H News
+            <Link sx={{ textDecoration: 'none', color: 'inherit' }} href="/stories">H News</Link>
           </Typography>
           <Link href="/search" color="inherit" sx={{ textDecoration: 'none' }}>Search</Link>
         </Toolbar>

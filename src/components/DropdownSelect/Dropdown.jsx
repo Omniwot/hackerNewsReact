@@ -16,10 +16,11 @@ export default function Dropdown({
     handleSelect(selectedVal);
   }, [selectedVal]);
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: '8rem', m: '0.2rem' }}>
       <FormControl fullWidth>
         <InputLabel id="simple-select-label">{label}</InputLabel>
         <Select
+          sx={{ height: '2rem' }}
           labelId="simple-select-label"
           id="simple-select"
           defaultValue={defaultValue}

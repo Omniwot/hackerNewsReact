@@ -10,10 +10,21 @@ function searchStories(page, search, filterSort, filterTime, filterType) {
   } else if (filterType === 'Comments') {
     filterTypeString = 'comment';
   }
-  return http.get(`http://hn.algolia.com/api/v1/${filterSortString}?query=${search}&tags=${filterTypeString}&page=${page}&hitsPerPage=${10}`);
+  let timeStamp = Date.now();
+  if (filterTime === 'Last 24H') {
+    timeStamp -= (24 * 60 * 60 * 1000);
+  } else if (filterTime === 'Past Week') {
+    timeStamp -= (7 * 24 * 60 * 60 * 1000);
+  } else if (filterTime === 'Past Month') {
+    timeStamp -= (30 * 24 * 60 * 60 * 1000);
+  } else if (filterTime === 'Past Year') {
+    timeStamp -= (365 * 24 * 60 * 60 * 1000);
+  }
+  const filterTimeString = (filterTime !== 'All time') ? `&numericFilters=created_at_i>${timeStamp / 1000}` : '';
+  return http.get(`http://hn.algolia.com/api/v1/${filterSortString}?query=${search}&tags=${filterTypeString}${filterTimeString}&page=${page}&hitsPerPage=${10}`);
 }
 
-function getSortedStories(page = 1) {
+function getSortedStories(page = 0) {
   return http.get(`http://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}&hitsPerPage=${10}`);
 }
 

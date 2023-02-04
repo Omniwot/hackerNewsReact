@@ -14,7 +14,7 @@ function StoriesPage() {
   const handlePageChange = (event, value) => {
     setPage(value);
     setIsLoading(true);
-    getSortedStories(page).then((storiesData) => {
+    getSortedStories(value - 1).then((storiesData) => {
       setStories(storiesData.data.hits);
       setMaxPages(storiesData.data.nbPages);
       setIsLoading(false);
@@ -23,7 +23,7 @@ function StoriesPage() {
 
   useEffect(() => {
     if (stories.length === 0) {
-      getSortedStories(page).then((storiesData) => {
+      getSortedStories(0).then((storiesData) => {
         setStories(storiesData.data.hits);
         setMaxPages(storiesData.data.nbPages);
       });

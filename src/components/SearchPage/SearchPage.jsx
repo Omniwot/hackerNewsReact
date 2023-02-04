@@ -15,16 +15,16 @@ function SearchPage() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [filterType, setFilterType] = useState('All');
-  const [filterTime, setFilterTime] = useState('All');
+  const [filterTime, setFilterTime] = useState('All time');
   const [filterSort, setFilterSort] = useState('Popularity');
   const [maxPages, setMaxPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const filterValues = [['All', 'Stories', 'Comments'], ['Popularity', 'Date'], ['All', 'Stories', 'Comments']];
+  const filterValues = [['All', 'Stories', 'Comments'], ['Popularity', 'Date'], ['All time', 'Last 24H', 'Past Week', 'Past Month', 'Past Year']];
 
   const handlePageChange = (event, value) => {
     setPage(value);
     setIsLoading(true);
-    getSortedStories(page).then((storiesData) => {
+    searchStories(value - 1, search, filterSort, filterTime, filterType).then((storiesData) => {
       setStories(storiesData.data.hits);
       setMaxPages(storiesData.data.nbPages);
       setIsLoading(false);
@@ -33,7 +33,8 @@ function SearchPage() {
 
   const handleSearch = () => {
     setIsLoading(true);
-    searchStories(page, search, filterSort, filterTime, filterType).then((storiesData) => {
+    setPage(1);
+    searchStories(0, search, filterSort, filterTime, filterType).then((storiesData) => {
       setStories(storiesData.data.hits);
       setMaxPages(storiesData.data.nbPages);
       setIsLoading(false);
@@ -68,13 +69,13 @@ function SearchPage() {
     .map((story) => {
       if (story.comment_text === ('' || null)) {
         return (
-          <div>
+          <div key={story.objectID}>
             <StoryCard story={story} />
           </div>
         );
       }
       return (
-        <div>
+        <div key={story.objectID}>
           <CommentCard comment={story} />
         </div>
       );

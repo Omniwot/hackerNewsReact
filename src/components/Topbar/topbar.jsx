@@ -22,6 +22,9 @@ export default function TopBar() {
           >
             <HMobiledataIcon />
           </IconButton>
+          <Typography sx={{ border: 2, p: '0.1rem 0.3rem 0.1rem 0.3rem' }} variant="h6" component="div">
+            Hacker News
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link sx={{ textDecoration: 'none', color: 'inherit' }} href="/stories">H News</Link>
           </Typography>

@@ -50,7 +50,7 @@ function StoriesPage() {
         alignItems="center"
         justifyContent="center"
       >
-        <Stack spacing={2} sx={{ marginBottom: '0.5rem', textAlign: 'center' }}>
+        <Stack spacing={2} sx={{ marginBottom: '0.5rem', marginTop: '0.5rem', textAlign: 'center' }}>
           <Pagination count={maxPages} variant="outlined" color="primary" page={page} onChange={handlePageChange} />
         </Stack>
       </Grid>

@@ -10,8 +10,8 @@ import { Link } from '@mui/material';
 export default function TopBar() {
   return (
     <Box sx={{ width: '100%' }}>
-      <AppBar position="static" sx={{ bgcolor: 'orange' }}>
-        <Toolbar variant="dense">
+      <AppBar position="static" elevation="0" sx={{ bgcolor: 'orange' }}>
+        <Toolbar variant="dense" elevation="0">
           <IconButton
             size="large"
             edge="start"
